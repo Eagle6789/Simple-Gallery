@@ -1,3 +1,7 @@
+/*
+ For browsing folder's content
+*/
+
 package com.simplemobiletools.gallery.pro.activities
 
 import android.app.Activity
@@ -21,6 +25,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.extensions.*
@@ -80,6 +87,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private lateinit var mMediumDao: MediumDao
     private lateinit var mDirectoryDao: DirectoryDao
 
+    // Ads
+        lateinit var mAdView: AdView
+
+
     companion object {
         var mMedia = ArrayList<ThumbnailItem>()
     }
@@ -119,6 +130,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         updateWidgets()
+
+        // Ads
+        MobileAds.initialize(this) {}
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     override fun onStart() {
