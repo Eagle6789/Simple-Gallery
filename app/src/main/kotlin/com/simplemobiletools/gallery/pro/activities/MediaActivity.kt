@@ -87,8 +87,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private lateinit var mMediumDao: MediumDao
     private lateinit var mDirectoryDao: DirectoryDao
 
-    // Ads
-        lateinit var mAdView: AdView
 
 
     companion object {
@@ -131,11 +129,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         updateWidgets()
 
-        // Ads
-        MobileAds.initialize(this) {}
-        mAdView = findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
     }
 
     override fun onStart() {

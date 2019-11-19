@@ -3,9 +3,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-//def keystorePropertiesFile = rootProject.file("keystore.properties")
-//def keystoreProperties = new Properties()
-//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 28
@@ -24,10 +24,10 @@ android {
 
     signingConfigs {
         release {
-//            keyAlias keystoreProperties['keyAlias']
-//            keyPassword keystoreProperties['keyPassword']
-//            storeFile file(keystoreProperties['storeFile'])
-//            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
         }
     }
 
@@ -83,6 +83,5 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.2.1'
     implementation 'androidx.room:room-runtime:2.2.1'
     annotationProcessor 'androidx.room:room-compiler:2.2.1'
-    implementation 'com.google.android.gms:play-services-ads:18.3.0'
 
 }

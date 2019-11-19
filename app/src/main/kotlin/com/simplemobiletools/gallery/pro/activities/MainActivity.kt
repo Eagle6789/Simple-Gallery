@@ -90,7 +90,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private lateinit var mMediumDao: MediumDao
     private lateinit var mDirectoryDao: DirectoryDao
 
-    lateinit var mAdView: AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -162,11 +161,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
 
-        MobileAds.initialize(this) {}
-
-        mAdView = findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
     }
 
     override fun onStart() {
