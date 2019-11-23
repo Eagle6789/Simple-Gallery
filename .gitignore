@@ -8,5 +8,5 @@
 /captures
 keystore.jks
 keystore.properties
-
 *.apk
+app/release/output.json
