@@ -444,7 +444,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
                 }
 
-                override fun onError(e: Exception) {}
+                override fun onError(e: Exception?) {}
             })
         } catch (ignored: Exception) {
         }
@@ -771,7 +771,7 @@ class PhotoFragment : ViewPagerFragment() {
         this.mIsFullscreen = isFullscreen
         mView.apply {
             photo_details.apply {
-                if (mStoredShowExtendedDetails && isVisible()) {
+                if (mStoredShowExtendedDetails && isVisible() && context != null) {
                     animate().y(getExtendedDetailsY(height))
 
                     if (mStoredHideExtendedDetails) {
