@@ -3,9 +3,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+//def keystorePropertiesFile = rootProject.file("keystore.properties")
+//def keystoreProperties = new Properties()
+//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 28
@@ -15,8 +15,13 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 28
+<<<<<<< HEAD
         versionCode 272
         versionName "6.10.5"
+=======
+        versionCode 270
+        versionName "vv1.0.2"
+>>>>>>> testing
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
         vectorDrawables.useSupportLibrary = true
@@ -24,10 +29,10 @@ android {
 
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+//            keyAlias keystoreProperties['keyAlias']
+//            keyPassword keystoreProperties['keyPassword']
+//            storeFile file(keystoreProperties['storeFile'])
+//            storePassword keystoreProperties['storePassword']
         }
     }
 
@@ -83,5 +88,9 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.2.1'
     implementation 'androidx.room:room-runtime:2.2.1'
     annotationProcessor 'androidx.room:room-compiler:2.2.1'
+<<<<<<< HEAD
+=======
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+>>>>>>> testing
 
 }
